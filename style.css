@@ -1,0 +1,26 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;  /* Ensure the body takes up the full height of the screen */
+    font-family: Arial, sans-serif;
+    background-color: black; /* Set background color for the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+}
+
+/* Full screen invisible button */
+#start-btn {
+    background-color: rgba(0, 0, 0, 0);  /* Transparent background */
+    border: none;                        /* Remove border */
+    position: absolute;                  /* Absolute positioning */
+    top: 0;                              /* Position at the top */
+    left: 0;                             /* Position at the left */
+    width: 100%;                         /* Make it fill the screen horizontally */
+    height: 100%;                        /* Make it fill the screen vertically */
+    cursor: pointer;                    /* Change cursor to indicate it's clickable */
+}
