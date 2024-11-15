@@ -1,27 +1,54 @@
-// Get the button element
-const startBtn = document.getElementById("start-btn");
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.body.classList.contains("load-page")) {
+        const getUrl = document.body.getAttribute("data-url")
 
-// Add an event listener to the button
-startBtn.addEventListener("click", () => {
-    // Change the window's location to the next HTML page
-    window.location.href = "load1.html";
+        if (getUrl) {
+            setTimeout(function () {
+                window.location.href = getUrl;
+            }, 5000);
+        } 
+        else {
+            console.error('No target URL specified in data-url attribute');
+        }
+    }
 });
 
-window.onload = function() {
-    const loadingBar = document.getElementById('loading-bar');
-    let width = 0;
+const buttons = document.querySelectorAll(".rdbutton")
 
-    // Increment the loading bar every second by 20%
-    const interval = setInterval(function() {
-        width += 20;  // Increase width by 20% each second
-        loadingBar.style.width = width + '%';
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const targetUrl = button.getAttribute("data-page");
+        
+        window.location.href = targetUrl;
+    });
+});
 
-        // After 5 seconds (when the width reaches 100%), redirect to another page
-        if (width >= 100) {
-            clearInterval(interval);  // Stop the interval
-            setTimeout(function() {
-                window.location.href = 'menu.html';  // Redirect to the next page
-            }, 500);  // Small delay to allow for the last frame to show
-        }
-    }, 1000); // 1000 ms = 1 second
-};
+document.addEventListener('DOMContentLoaded', function () {
+    // Single back button (go back 1 page)
+    const backButton = document.querySelector(".back-button");
+    if (backButton) {
+        backButton.addEventListener("click", () => {
+            window.history.back(); 
+        });
+    } else {
+        console.warn("back-button not found.");
+    }
+
+    // Double back button (go back 2 pages)
+    const backButton2 = document.querySelector(".back-button2");
+    if (backButton2) {
+        backButton2.addEventListener("click", () => {
+            window.history.go(-2); 
+        });
+    } else {
+        console.warn("back-button2 not found.");
+    }
+});
+
+
+
+
+
+
+
+

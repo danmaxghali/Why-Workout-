@@ -1,23 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-  }
-  
-
 body, html {
     margin: 0;
     padding: 0;
@@ -27,6 +7,38 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.back-button {
+  position: fixed;          /* Fixed position to keep it in the same spot */
+  top: 20px;                /* Adjust distance from the top */
+  left: 20px;               /* Adjust distance from the left */
+  padding: 10px 15px;
+  background-color: #555;   /* Button background color */
+  color: white;             /* Text color */
+  border: none;             /* Remove border */
+  border-radius: 5px;       /* Rounded corners */
+  cursor: pointer;          /* Cursor changes to pointer on hover */
+  font-size: 16px;
+  z-index: 1000;            /* Ensure it stays above other elements */
+}
+
+.back-button2 {
+  position: fixed;          /* Fixed position to keep it in the same spot */
+  top: 20px;                /* Adjust distance from the top */
+  left: 20px;               /* Adjust distance from the left */
+  padding: 10px 15px;
+  background-color: #555;   /* Button background color */
+  color: white;             /* Text color */
+  border: none;             /* Remove border */
+  border-radius: 5px;       /* Rounded corners */
+  cursor: pointer;          /* Cursor changes to pointer on hover */
+  font-size: 16px;
+  z-index: 1000;            /* Ensure it stays above other elements */
+}
+
+.back-button:hover {
+  background-color: #333;   /* Darken background on hover */
 }
 
 h1 {
@@ -43,18 +55,10 @@ h2 {
 h3 {
     color: white;
     height: 50%;
-    font-size: 3rem;
+    font-size: 2rem;
     align-items: center;
-}
-
-.boxed-heading {
-    display: inline-block; /* Makes the box fit the content */
-    padding: 20px; /* Adds space inside the box */
-    padding-bottom: 20px;
-    background-color: palevioletred; /* Set the background colour of the box */
-    color: white; /* Text colour */
-    font-size: 2rem; /* Adjust text size */
-    text-align: center; /* Centre the text inside the box */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Full screen invisible button */
@@ -69,21 +73,66 @@ h3 {
     cursor: pointer;                    /* Change cursor to indicate it's clickable */
 }
 
-/* Style for the loading bar container */
-#loading-bar-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 5px;
-  background-color: #ddd;
-  z-index: 9999;
-  transform: translate(-50%, -50%); /* Center the container */
+.container {
+  text-align: center;
 }
 
-/* Style for the loading bar */
-#loading-bar {
-  width: 0%;
-  height: 100%;
-  background-color: #4CAF50;
+#button-container {
+  display: flex;
+  gap: 75px; 
+}
+
+/* Button styling */
+.rounded-button {
+  background-color: #000; /* Black fill */
+  color: #fff; /* White text */
+  border: 2px solid #fff; /* White outline */
+  border-radius: 25px; /* Rounded corners */
+  padding: 50px 100px;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button hover effect */
+.rounded-button:hover {
+  background-color: #ffffff; /* White fill on hover */
+  color: #000000; /* Black text on hover */
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+  margin: 0;
+}
+
+/* Container for the loading bar */
+.loading-container {
+  width: 80%;            /* Width of the loading bar container */
+  height: 30px;          /* Height of the loading bar */
+  background-color: #333; /* Background color of the container */
+  border-radius: 15px;    /* Rounded corners */
+  overflow: hidden;       /* Hide overflow for smooth edges */
+  margin: 0 auto;         /* Center the container horizontally */
+}
+
+/* Actual loading bar */
+.loading-bar {
+  height: 100%;           /* Full height of the container */
+  width: 0%;              /* Initial width (0% to 100% animation) */
+  background-color: #4CAF50; /* Color of the loading bar */
+  animation: loading 5s linear forwards; /* 5 seconds animation */
+}
+
+/* Keyframes for loading animation */
+@keyframes loading {
+  0% {
+      width: 0%;
+  }
+  100% {
+      width: 100%;
+  }
 }
