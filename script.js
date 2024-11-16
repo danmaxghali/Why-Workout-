@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (getUrl) {
             setTimeout(function () {
                 window.location.href = getUrl;
-            }, 5000);
+            }, 6000);
         } 
         else {
             console.error('No target URL specified in data-url attribute');
