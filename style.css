@@ -136,3 +136,9 @@ h3 {
       width: 100%;
   }
 }
+
+.stacked-list {
+  text-align: center;
+  display: block;
+  width: 70%;
+}
